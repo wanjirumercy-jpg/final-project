@@ -1,0 +1,83 @@
+/* General Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; /* Light gray background */
+    color: #333; /* Darker text for readability */
+}
+
+/* Navbar */
+.navbar {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Search Bar */
+.input-group .form-control {
+    border-radius: 0;
+}
+
+.input-group .btn {
+    border-radius: 0;
+}
+
+/* Skill Category Cards */
+.card {
+    border: none; /* Remove default borders */
+    border-radius: 10px; /* Smooth rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-title {
+    font-weight: bold;
+    color: #007bff; /* Bootstrap primary color */
+}
+
+.card-text {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.card .btn {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+}
+
+.card .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Section Titles */
+h3 {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* Filters */
+select.form-select {
+    border-radius: 0;
+    border: 1px solid #ddd;
+}
+
+select.form-select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 20px;
+    }
+}

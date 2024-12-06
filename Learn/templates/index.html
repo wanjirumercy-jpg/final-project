@@ -1,0 +1,128 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block body %}
+
+  <main class="main">
+
+    <!-- Hero Section -->
+
+    <section id="hero" class="hero section dark-background">
+
+        {% for h in hero %}
+      <img src="{{ h.hero_image.url  }}" alt="" data-aos="fade-in">
+
+      <div class="container">
+        <h2 data-aos="fade-up" data-aos-delay="100">{{ h.hero_title }}</h2>
+        <p data-aos="fade-up" data-aos-delay="200">{{ h.hero_desc }}</p>
+        <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
+          <a href="{% url 'Learn:skills' %}" class="btn-get-started">Get Started</a>
+        </div>
+      </div>
+        {% endfor %}
+    </section>
+      <!-- /Hero Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+            {% for sect in section %}
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
+            <img src="{{ sect.img.url }}" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
+            <h3>{{ sect.title }}</h3>
+            <p class="fst-italic">
+              {{ sect.desc }}
+            </p>
+            <ul>
+              <li><i class="bi bi-check-circle"></i> <span>{{ sect.feature_1 }}</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>{{ sect.feature_2 }}</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>{{ sect.feature_3 }}</span></li>
+            </ul>
+            <a href="#" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+          </div>
+
+            {% endfor %}
+        </div>
+
+      </div>
+
+    </section><!-- /About Section -->
+
+    <!-- Why Us Section -->
+    <section id="why-us" class="section why-us">
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+            {% if why %}
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="why-box">
+              <h3>{{ why.main_title }}</h3>
+              <p>
+                {{ why.main_description }}
+              </p>
+              <div class="text-center">
+                <a href="#" class="more-btn text-primary"><span>{{ why.more_button_link }}</span> <i class="bi bi-chevron-right"></i></a>
+              </div>
+            </div>
+          </div>
+            {% endif %}
+            <!-- End Why Box -->
+
+          <div class="col-lg-8 d-flex align-items-stretch">
+            <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
+
+                {% for feature in why_feature %}
+              <div class="col-xl-4">
+                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                  <i class="{{ feature.icon }}"></i>
+                  <h4>{{  feature.title }}</h4>
+                  <p>{{ feature.description }}</p>
+                </div>
+              </div>
+                {% endfor %}<!-- End Icon Box -->
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Why Us Section -->
+
+    <!-- Features Section -->
+    <section id="features" class="features section">
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+            {% for f in feature %}
+         <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:100 }}">
+            <div class="features-item">
+              <!-- <i class="bi {{ f.icon }}" style="color: {{ f.color }};"></i> -->
+              <h3><a href="" class="stretched-link">{{ f.title }}</a></h3>
+<!-- {#                <p>{{ f.description }}</p>#} -->
+            </div>
+          </div>
+            {% endfor %}<!-- End Feature Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Features Section -->
+
+
+  </main>
+
+  {% endblock %}
