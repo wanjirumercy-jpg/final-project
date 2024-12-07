@@ -59,9 +59,6 @@ def skills(request):
 
     return render(request,'skills.html')
 
-@login_required(login_url='Learn:login')
-def mentors(request):
-    return render(request,'mentors.html')
 
 @login_required(login_url='Learn:login')
 def layout(request):
