@@ -1,0 +1,9 @@
+<div class="container">
+    <h1>{{ user.username }}'s Profile</h1>
+    <div>
+        <img src="{{ user.profile.profile_picture.url }}" alt="Profile Picture" class="rounded-circle">
+        <h3>{{ user.username }}</h3>
+        <p>Job Title: {{ user.profile.job_title }}</p>
+        <!-- Add other user details here -->
+    </div>
+</div>

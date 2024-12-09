@@ -1,4 +1,4 @@
-{% extends 'layout.html' %}
+{% extends 'base.html' %}
 
 {% load static %}
 
@@ -17,7 +17,7 @@
         <h2 data-aos="fade-up" data-aos-delay="100">{{ h.hero_title }}</h2>
         <p data-aos="fade-up" data-aos-delay="200">{{ h.hero_desc }}</p>
         <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
-          <a href="{% url 'Learn:skills' %}" class="btn-get-started">Get Started</a>
+          
         </div>
       </div>
         {% endfor %}

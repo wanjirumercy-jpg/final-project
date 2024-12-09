@@ -143,9 +143,46 @@ class SkillFeature(models.Model):
 
 
 
+class UploadSkill(models.Model):
+    name = models.CharField(max_length=200)
+    description = models.TextField()
+    category = models.CharField(max_length=100)
+    file = models.FileField(upload_to='skills/', blank=True, null=True)
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = 'learn_skill' 
+
+    def __str__(self):
+        return self.name
 
 
+class SkillRequest(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  # User who requested the skill
+    skill_name = models.CharField(max_length=255)
+    skill_description = models.TextField()
+    status = models.CharField(max_length=50, default="Pending")  # E.g., "Pending", "Fulfilled"
+    created_at = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return f"Request for {self.skill_name} by {self.user.username}"
+
+
+class Feedback(models.Model):
+    skill_request = models.ForeignKey(SkillRequest, related_name='feedbacks', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  # User giving the feedback
+    feedback_text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Feedback by {self.user.username} on {self.skill_request.skill_name}"
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    profile_picture = models.ImageField(upload_to='profile_pictures/', default='default.jpg')
+
+    def __str__(self):
+        return self.user.username
 
 
 

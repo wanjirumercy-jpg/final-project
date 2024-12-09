@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Provide Feedback</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJ4vJ6C7uO5Z3eL1IHjbd6tXvI4gwV4lQ8HcJ6yATNDCf53J04mnXcShJ8Z3" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container my-5">
+    <h1 class="text-center">Provide Feedback on: {{ skill_request.skill_name }}</h1>
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">Submit Feedback</button>
+    </form>
+    <a href="{% url 'Learn:view_skill_requests' %}" class="btn btn-link">Back to Skill Requests</a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybGm6cAXEdmXhrPp43j6JcjlXW0elDIsFddh7sPOTnKshNzm7" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0WlP6+uIEIfpZjfyPz2acm43WeILywwww7rc9rNw+jg/1f8dI" crossorigin="anonymous"></script>
+</body>
+</html>

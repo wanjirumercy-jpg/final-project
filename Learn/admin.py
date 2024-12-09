@@ -1,6 +1,6 @@
 from django.contrib import admin
 from . models import Hero,Section,WhyUsSection, WhyUsFeature, Feature, ContactInfo, SocialLink, UsefulLink, Service, AboutTitle, AboutUs
-from . models import Testimonial,SkillCategory,SkillFeature
+from . models import Testimonial,SkillCategory,SkillFeature,UploadSkill
 # Register your models here.
 admin.site.register(Hero)
 admin.site.register(Section)
@@ -16,4 +16,6 @@ admin.site.register(AboutUs)
 admin.site.register(Testimonial)
 admin.site.register(SkillCategory)
 admin.site.register(SkillFeature)
+admin.site.register(UploadSkill)
+
 
